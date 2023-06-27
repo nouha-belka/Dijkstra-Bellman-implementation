@@ -3,27 +3,18 @@ from button import*
 
 
 
-#our color pallette:
-#color of inacive text box's border
-COLOR_INACTIVE = pygame.Color('lightpink3')
-#color of acive text box's border
-COLOR_ACTIVE = pygame.Color('dodgerblue2')
-#color of inacive text box's border
-FILL_COLOR_INACTIVE = pygame.Color('mistyrose')
-#color of acive text box
-FILL_COLOR_ACTIVE = pygame.Color('white')
-font_size = 20
 
 
 
 
 
-class InputBox:
 
-    def __init__(self, x, y, width, height,zone_text='', text='',border_width = 0,text_zone_width = 170):
+class InputBox():
+
+    def __init__(self, x, y, width, height,zone_text='', text="",border_width = 0,text_zone_width = 170):
         #self.rect = pygame.Rect(x, y, w, h)
-        self.color = COLOR_INACTIVE
-        self.fill_color = FILL_COLOR_INACTIVE
+        self.color = InputBox.COLOR_INACTIVE
+        self.fill_color = InputBox.FILL_COLOR_INACTIVE
         self.text = text
         self.font = pygame.font.SysFont('Constantia', 20)
         self.txt_surface = self.font.render(text, True, self.color)
@@ -48,8 +39,8 @@ class InputBox:
             else:
                 self.active = False
             # Change the current color of the input box.
-            self.color = COLOR_ACTIVE if self.active else COLOR_INACTIVE
-            self.fill_color = FILL_COLOR_ACTIVE if self.active else FILL_COLOR_INACTIVE
+            self.color = InputBox.COLOR_ACTIVE if self.active else InputBox.COLOR_INACTIVE
+            self.fill_color = InputBox.FILL_COLOR_ACTIVE if self.active else InputBox.FILL_COLOR_INACTIVE
         if event.type == pygame.KEYDOWN:
             if self.active :
                 if event.key == pygame.K_RETURN:
@@ -70,9 +61,19 @@ class InputBox:
         self.rect_under = pygame.Rect(self.x-self.text_zone_width, self.y - self.border_width, self.width+self.text_zone_width+self.border_width , self.height + ( self.border_width*2))
         pygame.draw.rect(screen, self.color, self.rect_under, 0)
         pygame.draw.rect(screen, self.fill_color, self.rect, 0)
-        screen.blit(self.txt_surface, (self.rect.x+(font_size/4), self.rect.y+(self.rect.height/4)))
-        screen.blit(self.txt_zone_surface , (self.x-self.text_zone_width+(font_size/4), self.rect.y+(self.rect.height/4)))
+        screen.blit(self.txt_surface, (self.rect.x+(InputBox.font_size/4), self.rect.y+(self.rect.height/4)))
+        screen.blit(self.txt_zone_surface , (self.x-self.text_zone_width+(InputBox.font_size/4), self.rect.y+(self.rect.height/4)))
         # Blit the rect.
+
+
+    COLOR_INACTIVE = pygame.Color('pink3')
+    #color of acive text box's border
+    COLOR_ACTIVE = pygame.Color('dodgerblue2')
+    #color of inacive text box's border
+    FILL_COLOR_INACTIVE = pygame.Color('mistyrose')
+    #color of acive text box
+    FILL_COLOR_ACTIVE = pygame.Color('white')
+    font_size = 20
         
 
 

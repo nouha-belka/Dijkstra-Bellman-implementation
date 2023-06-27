@@ -7,7 +7,7 @@ class Screen():
 		self.title = title
 		self.width = width
 		self.height = height
-		self.fill = fill
+		Screen.fill = fill
 		self.current = False
 		self.x = x
 		self.y = y

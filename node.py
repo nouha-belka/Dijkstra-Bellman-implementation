@@ -6,12 +6,12 @@ import random
 class Node():
 	count = 0
 
-	def __init__(self,x,y):
+	def __init__(self,x,y,color):
 		self.x = x
 		self.y = y
 		self.radius = 25
 		self.width = 2
-		self.color = 'black'
+		self.color = color
 		self.count = Node.count
 		Node.count = Node.count + 1
 		self.text = "X"+str(self.count)
@@ -22,15 +22,16 @@ class Node():
 		self.temporary_dis = 0
 		self.former = None
 		self.former_link = 0
+		self.source = True
 
 	def draw_node(self,screen):
 		#draw circle with white background
-		pygame.draw.circle(screen,'white',(self.x,self.y),self.radius,0)
+		pygame.draw.circle(screen,self.color,(self.x,self.y),self.radius,0)
 		#draw cicle with border width 
 		pygame.draw.circle(screen,self.color,(self.x,self.y),self.radius,self.width)
 		#text rendering
 		font = pygame.font.SysFont('Constantia', 15)
-		text_img = font.render(self.text, True, self.color)
+		text_img = font.render(self.text, True, "white")
 		text_len = text_img.get_width()
 		screen.blit(text_img, (self.x - int(text_len /2), self.y-8))
 
@@ -45,8 +46,10 @@ class Node():
 
 	def move(self,pos):
 		#give node the mouse positions
-		self.x = pos[0]
-		self.y = pos[1]
+		if pos[0] >= 250 and pos[0] <= 1290 and pos[1] >= 80 and pos[1] <= 570:
+			self.x = pos[0]
+			self.y = pos[1]
+
 
 
 
