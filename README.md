@@ -34,9 +34,11 @@ During the development of this project, a fun fact emerged: It provided an oppor
 ![thg2](https://github.com/nouha-belka/THG-project/assets/84313345/f54ec32a-8401-4861-9231-4d0f15fbaab0)
 
 **The project refuses to calculate with Dijkstra since there are some negative edges, it uses bellman instead**
+
 ![thg4](https://github.com/nouha-belka/THG-project/assets/84313345/ffe22535-71f7-4737-a6db-801ff74ae4fe)
 
 **Absorbent Circuit Detection**
+
 ![Screenshot (559)](https://github.com/nouha-belka/THG-project/assets/84313345/d909b210-c90d-4236-8e99-fe44cf2e7cfc)
 
 ---
